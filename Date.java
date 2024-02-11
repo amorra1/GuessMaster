@@ -57,19 +57,19 @@ public class Date
 
     public void setDate(int monthInt, int day, int year)
     {
-        if (dateOK(monthInt, day, year))
-        {
+//        if (dateOK(monthInt, day, year))
+//        {
             this.month = monthString(monthInt);
             this.day = day;
             this.year = year;
             //return true;
-        }
-        else
-        {
-            System.out.println("Fatal Error2");
-            System.exit(0);
-           // return false;
-        }
+//        }
+//        else
+//        {
+//            System.out.println("Fatal Error2");
+//            System.exit(0);
+//           // return false;
+//        }
     }
 
     public void setDate(String monthString, int day, int year)
@@ -212,7 +212,7 @@ public class Date
          }
     }
 
-    private boolean dateOK(int monthInt, int dayInt, int yearInt)
+   private boolean dateOK(int monthInt, int dayInt, int yearInt)
     {
         return ( (monthInt >= 1) && (monthInt <= 12) &&
                  (dayInt >= 1) && (dayInt <= 31) &&

@@ -57,8 +57,8 @@ public class GuessMaster {
 			Date playerGuess = new Date(playerInput);
 			Date entityDate = entity.born();
 
-			
-
+			//check if date is valid
+			if(gmDateOK(playerGuess)) {
 				//checks if date is equal, less, or greater
 				if(playerGuess.equals(entityDate)) {
 					System.out.println("BINGO. You got it!!");
@@ -68,8 +68,10 @@ public class GuessMaster {
 				}else {
 					System.out.println("Incorrect. Try an earlier date");
 				}
+			}else {
+				System.out.println("Invalid Date, try again");
 			}
-		
+		 }
 	}
 
 	//plays the game with an index
@@ -88,6 +90,17 @@ public class GuessMaster {
 		Random rand = new Random();
 		return rand.nextInt(numberOfCandidateEntities);
 	}
+	
+	//checks validity of date entered
+    private boolean gmDateOK(Date date)
+    {
+    	int dayInt = date.getDay();
+    	int monthInt = date.getMonth();
+    	int yearInt = date.getYear();
+        return ( (monthInt >= 1) && (monthInt <= 12) &&
+                 (dayInt >= 1) && (dayInt <= 31) &&
+                 (yearInt >= 1000) && (yearInt <= 9999) );
+    }
 	
 	public static void main(String[] args) {
 		Entity trudeau = new Entity(
